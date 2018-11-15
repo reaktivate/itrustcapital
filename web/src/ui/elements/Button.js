@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 
 const ButtonElement = styled.button({
   'height': '20px',
-   'padding': '0 10px',
+  'padding': '0 10px',
   'background-color': 'white',
   'display': 'flex',
   'justify-content': 'center',
   'align-items': 'center',
   'border': 'solid 1px',
   'text-transform': 'uppercase',
-  'white-space': 'nowrap'
+  'white-space': 'nowrap',
+  'border-radius': '2px'
 },
   props => {
     if (props.disabled)
@@ -21,10 +22,10 @@ const ButtonElement = styled.button({
     else
       switch (props.type) {
         case 'primary':
-          return { 'border-color': props.theme.buttons.border.color.primary };
+          return { 'border-color': props.theme.button.border.color.primary };
 
         case 'secondary':
-          return { 'border-color': props.theme.buttons.border.color.secondary };
+          return { 'border-color': props.theme.button.border.color.secondary };
       }
   });
 

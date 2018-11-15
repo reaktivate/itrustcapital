@@ -2,14 +2,18 @@
   "colors": {
     "primary": "#333",
     "secondary": "#555",
-    "disabled": "grey"
+    "disabled": "grey",
+    "faded": "#999"   
   },
-  "buttons": {
+  "button": {
     "border": {
       "color": {
         "primary": "green",
         "secondary": "blue"
       }
     }
+  },
+  "panel": {
+    "background": "white"
   }
 }

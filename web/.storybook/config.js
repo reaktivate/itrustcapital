@@ -21,8 +21,8 @@ const style = {
   right: 0,
   bottom: 0,
   left: 0,
-  width: 300,
-  padding: 8
+  padding: 8,
+  flexFlow: 'column'
 };
 
 addDecorator((story) => (
