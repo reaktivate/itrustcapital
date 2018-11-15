@@ -1,21 +1,22 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import Button from '../../ui/elements/Button';
+import Panel from '../../ui/containers/Panel';
 
 storiesOf('elements/Button', module)
     .add('default', () => {
         return (
-            <Fragment>
+            <Panel>
                 <Button type="primary">Transfer In (primary)</Button>
                 <Button>Buy (primary)</Button>
                 <Button type="secondary">Sell (secondary)</Button>
-            </Fragment>
+            </Panel>
         )
     })
     .add('disabled', () => {
         return (
-            <Fragment>
+            <Panel>
                 <Button disabled={true}>Transfer In</Button>
-            </Fragment>
+            </Panel>
         )
     });

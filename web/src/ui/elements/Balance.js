@@ -2,12 +2,12 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from './Button';
-import CurrencyFormat from 'react-currency-format'
+import CurrencyFormat from 'react-currency-format';
+import Panel from '../containers/Panel.js';
 
 const Currency = styled.div({
   'font-weight': 'bold',
-  'text-transform': 'uppercase',
-
+  'text-transform': 'uppercase'
 });
 
 const Amount = styled.div({
@@ -18,20 +18,9 @@ const Status = styled.div(({ theme }) => ({
   'color': theme.colors.faded
 }));
 
-const BalanceContainer = styled.div(({ theme }) => ({
-  'display': 'flex',
-  'height': '60px',
-  'align-items': 'center',
-  'justify-content': 'space-between',
-  'padding': '0 20px',
-  'white-space': 'nowrap',
-  'background': theme.panel.background,
-  'box-shadow': '2px 2px 5px grey',
-  'font-family': 'arial',
-}));
-
 const LeftContainer = styled.div({
   display: 'flex',
+  'flex-wrap': 'wrap',
   '> *': {
     'margin-right': '30px'
   }
@@ -67,7 +56,7 @@ class Balance extends PureComponent {
     const props = this.props;
 
     return (
-      <BalanceContainer>
+      <Panel>
         <LeftContainer>
           <Currency>{props.currency} Balance</Currency>
           <Amount>
@@ -76,7 +65,7 @@ class Balance extends PureComponent {
           <Status>{getStatusText(props.status)}</Status>
         </LeftContainer>
         <Button>Transfer in</Button>
-      </BalanceContainer>
+      </Panel>
     )
   }
 };
