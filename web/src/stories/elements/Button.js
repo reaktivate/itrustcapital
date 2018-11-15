@@ -6,16 +6,16 @@ storiesOf('elements/Button', module)
     .add('default', () => {
         return (
             <Fragment>
-                <Button type="buy">Buy</Button>
-                <Button type="sell">Sell</Button>
+                <Button type="primary">Transfer In (primary)</Button>
+                <Button>Buy (primary)</Button>
+                <Button type="secondary">Sell (secondary)</Button>
             </Fragment>
         )
     })
     .add('disabled', () => {
         return (
             <Fragment>
-                <Button type="buy" disabled="true">Buy</Button>
-                <Button type="sell" disabled="true">Sell</Button>
+                <Button disabled={true}>Transfer In</Button>
             </Fragment>
         )
     });

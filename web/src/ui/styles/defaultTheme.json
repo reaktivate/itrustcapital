@@ -1,6 +1,15 @@
 {
   "colors": {
     "primary": "#333",
-    "secondary": "#555"
+    "secondary": "#555",
+    "disabled": "grey"
+  },
+  "buttons": {
+    "border": {
+      "color": {
+        "primary": "green",
+        "secondary": "blue"
+      }
+    }
   }
 }
