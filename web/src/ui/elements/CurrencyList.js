@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import CurrencyFormat from 'react-currency-format';
 import Panel from '../containers/Panel.js';
+import plusIcon from '../icons/raw/plus.svg';
 
 const Table = styled.table({
   width: '100%'
@@ -12,15 +13,21 @@ const Table = styled.table({
 const Row = styled.tr({});
 
 const HeaderCell = styled.td((props) => ({
-  'text-align': props.alignRight ? 'right' : 'left'
+  'text-align': props.align || 'center',
+  'text-transform': 'uppercase',
+  'font-weight': 'bold'
 }));
 
 const Cell = styled.td((props) => ({
-  'text-align': props.alignRight ? 'right' : 'left',
+  'text-align': props.align || 'center',
   'white-space': 'nowrap'
 }));
 
 class List extends Component {
+  static propTypes = {
+    items: PropTypes.array
+  };
+
   render() {
     const props = this.props;
 
@@ -29,9 +36,9 @@ class List extends Component {
         <thead>
           <Row>
             <HeaderCell>Cryptocurrency</HeaderCell>
-            <HeaderCell alignRight={true}>Holdings</HeaderCell>
-            <HeaderCell alignRight={true}>Market price</HeaderCell>
-            <HeaderCell alignRight={true}>USD Balance</HeaderCell>
+            <HeaderCell>Holdings</HeaderCell>
+            <HeaderCell>Market price</HeaderCell>
+            <HeaderCell>USD Balance</HeaderCell>
             <HeaderCell>Operation</HeaderCell>
           </Row>
         </thead>
@@ -45,21 +52,46 @@ class List extends Component {
   }
 };
 
+const Icon = styled.img({
+  height: '17px',
+  width: '17px',
+  background: 'green'
+});
+
+class CryptoCurrency extends Component {
+  static propTypes = {
+    currency: PropTypes.object.isRequired
+  }
+
+  render() {
+    const props = this.props;
+
+    return (
+      <Fragment>
+        <Icon src={plusIcon}></Icon>
+        {props.currency.name}
+      </Fragment>
+    )
+  }
+}
+
 class ListItem extends Component {
   render() {
     const { item } = this.props;
 
     return (
       <Row>
-        <Cell>{item.name}</Cell>
-        <Cell alignRight={true}>
-          <CurrencyFormat value={item.amount} displayType={'text'} thousandSeparator={true}/>
+        <Cell align="left">
+          <CryptoCurrency currency={item.currency}></CryptoCurrency>
         </Cell>
-        <Cell alignRight={true}>
-          <CurrencyFormat value={item.rate} displayType={'text'} thousandSeparator={true}/>
+        <Cell>
+          <CurrencyFormat value={item.amount} displayType={'text'} thousandSeparator={true} />
         </Cell>
-        <Cell alignRight={true}>
-          <CurrencyFormat value={item.amount * item.rate} displayType={'text'} thousandSeparator={true}/>
+        <Cell>
+          <CurrencyFormat value={item.rate} displayType={'text'} thousandSeparator={true} />
+        </Cell>
+        <Cell>
+          <CurrencyFormat value={item.amount * item.rate} displayType={'text'} thousandSeparator={true} />
         </Cell>
         <Cell>
           <div style={{ 'display': 'flex', 'whiteSpace': 'nowrap' }}>

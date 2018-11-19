@@ -7,19 +7,28 @@ storiesOf('elements/CurrencyList', module)
         const items = [
             {
                 id: 1,
-                name: 'bitcoin',
+                currency: {
+                    id: 1,
+                    name: 'bitcoin',
+                },
                 amount: 1,
                 rate: 222
             },
             {
                 id: 2,
-                name: 'bitcoin cash',
+                currency: {
+                    id: 5,
+                    name: 'bitcoin cash',
+                },
                 amount: 3,
                 rate: 234
             },
             {
                 id: 3,
-                name: 'ethereum',
+                currency: {
+                    id: 56,
+                    name: 'ethereum',
+                },
                 amount: 7,
                 rate: 545454
             },

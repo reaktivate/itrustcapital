@@ -70,4 +70,4 @@ class Balance extends PureComponent {
   }
 };
 
-export default Balance;
+export   default Balance;
